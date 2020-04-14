@@ -1,0 +1,1 @@
+{"0": "O", "1": "B-days_sick", "10": "I-months_old", "11": "U-months_old", "12": "L-months_old", "13": "B-symptom", "14": "I-symptom", "15": "U-symptom", "16": "L-symptom", "2": "I-days_sick", "3": "U-days_sick", "4": "L-days_sick", "5": "B-health", "6": "I-health", "7": "U-health", "8": "L-health", "9": "B-months_old"}
