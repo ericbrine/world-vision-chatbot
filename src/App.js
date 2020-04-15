@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import './static/css/chat_interface.css';
-import './static/css/temporary.css';
+// import './static/css/temporary.css';
 
 class SendButton extends Component{
     render(){
