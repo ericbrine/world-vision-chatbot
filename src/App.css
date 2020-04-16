@@ -1,3 +1,23 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+  margin: 0;
+  min-height: 100%;
+}
+
+body {
+  background-color: #edeff2;
+  font-family: "Calibri", "Roboto", sans-serif;
+  min-height: 100%;
+}
+
+#root {
+  height: 100vh;
+  background-color: #f8f8f8;
+}
+
 .App {
   text-align: center;
 }
@@ -29,4 +49,16 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.chat_window {
+  /*position: absolute;*/
+  width: 100%;
+  max-width: 1200px;
+  background-color: #fff;
+  top: 50%;
+  /* box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15); */
+  background-color: #f8f8f8;
+  overflow: hidden;
+  height: 100%;
 }

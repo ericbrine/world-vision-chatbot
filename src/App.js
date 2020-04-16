@@ -1,103 +1,10 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
-import './static/css/chat_interface.css';
-// import './static/css/temporary.css';
-
-class SendButton extends Component{
-    render(){
-      return (<div className="send_message" onClick={this.props.handleClick}>
-                <div className="text">send</div>
-              </div>);
-    }
-}
-
-class MessageTextBoxContainer extends Component{
-  render(){
-    return(
-      <div className="message_input_wrapper">
-        <input id="msg_input" className="message_input" placeholder="Type your messages here..." value={this.props.message} onChange={this.props.onChange} onKeyPress={this.props._handleKeyPress}/>
-      </div>
-    );
-  }
-}
-
-class Avatar extends Component {
-  render(){
-    return(
-      <div className="avatar"/>
-    );
-  }
-}
-
-class BotMessageBox extends Component{
-  constructor(props) {
-    super(props);
-  }
-  render(){
-    return(
-      <li className="message left appeared">
-        <Avatar></Avatar>
-        <div className="text_wrapper">
-            <div className="text">{this.props.message}</div>
-        </div>
-      </li>
-    );
-  }
-}
-
-class UserMessageBox extends Component{
-  constructor(props) {
-    super(props);
-
-  }
-  render(){
-    return(
-      <li className={`message ${this.props.appearance} appeared`}>
-        <Avatar></Avatar>
-        <div className="text_wrapper">
-            <div className="text">{this.props.message}</div>
-        </div>
-      </li>
-    );
-  }
-}
-
-class MessagesContainer extends Component{
-  constructor(props) {
-    super(props);
-    this.createBotMessages = this.createBotMessages.bind(this);
-  }
-
-  scrollToBottom = () => {
-    var el = this.refs.scroll;
-    el.scrollTop = el.scrollHeight;
-  }
-
-  componentDidMount() {
-    this.scrollToBottom();
-  }
-
-  componentDidUpdate() {
-    this.scrollToBottom();
-  }
-
-  createBotMessages(){
-    console.log(this.props.messages);
-    return this.props.messages.map((message, index) =>
-       <UserMessageBox key={index} message={message["message"]} appearance={message["isbotmessage"] ? "left": "right"}/>
-    );
-  }
-
-  render(){
-
-    return(
-      <ul className="messages" ref="scroll">
-        {this.createBotMessages()}
-      </ul>
-    );
-  }
-}
+import TopMenu from './top_menu/TopMenu';
+import SendButton from './bottom_wrapper/SendButton';
+import MessageTextBoxContainer from './bottom_wrapper/MessageTextBoxContainer';
+import MessagesContainer from './messages/MessageContainer';
 
 
 class ChatApp extends Component {
@@ -109,7 +16,6 @@ class ChatApp extends Component {
     this.onChange = this.onChange.bind(this);
     this.addMessageBox = this.addMessageBox.bind(this);
   }
-  
 
   addMessageBox(enter=true){
     let messages = this.state.messages;
@@ -163,16 +69,18 @@ class ChatApp extends Component {
 
   render() {
     return (
-      <div className="chat_window">
-        <MessagesContainer messages={this.state.messages}></MessagesContainer>
-        <div className="bottom_wrapper clearfix">
-          <MessageTextBoxContainer 
-            _handleKeyPress={this._handleKeyPress} 
-            onChange={this.onChange} 
-            message={this.state.current_message}></MessageTextBoxContainer>
-          <SendButton handleClick={this.handleClick}></SendButton>
+      <div>
+        <TopMenu></TopMenu>
+        <div className="chat_window">
+          <MessagesContainer messages={this.state.messages}></MessagesContainer>
+          <div className="bottom_wrapper clearfix">
+            <MessageTextBoxContainer 
+              _handleKeyPress={this._handleKeyPress} 
+              onChange={this.onChange} 
+              message={this.state.current_message}></MessageTextBoxContainer>
+            <SendButton handleClick={this.handleClick}></SendButton>
+          </div>
         </div>
-        
       </div>
     );
   }

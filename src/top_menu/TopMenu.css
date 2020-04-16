@@ -1,0 +1,36 @@
+
+.top_menu {
+    background-color: rgba(255, 255, 255, 0.315);
+    width: 100%;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    padding: 20px 0px;
+    background-color: #f8f8f8;
+    overflow: hidden;
+  }
+  .top_menu .buttons {
+    margin: 3px 0 0 20px;
+    position: absolute;
+  }
+  .top_menu .buttons .button {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    display: inline-block;
+    margin-right: 10px;
+    position: relative;
+  }
+  .top_menu .buttons .button.close {
+    background-color: #f5886e;
+  }
+  .top_menu .buttons .button.minimize {
+    background-color: #fdbf68;
+  }
+  .top_menu .buttons .button.maximize {
+    background-color: #a3d063;
+  }
+  .top_menu .title {
+    text-align: center;
+    color: #337ab7;
+    font-size: 20px;
+  }
