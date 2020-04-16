@@ -1,10 +1,11 @@
 .messages {
     position: relative;
     list-style: none;
-    padding: 20px 10px 0 10px;
+    padding: 20px 10px 20px 10px;
     margin: 0;
     height: calc(100vh - 134px);
     overflow: scroll;
+    /* border-style: none groove none groove; */
   }
   .messages .message {
     clear: both;
@@ -87,12 +88,4 @@
   .messages .message .text_wrapper .text {
     font-size: 18px;
     font-weight: 300;
-  }
-
-  .message_template {
-    display: none;
-  }
-  
-  #msg_input{
-      color: black;
   }

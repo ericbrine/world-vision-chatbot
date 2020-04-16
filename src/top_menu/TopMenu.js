@@ -4,7 +4,9 @@ import './TopMenu.css'
 class TopMenu extends Component {
     render(){
       return(
-        <div className="top_menu"/>
+        <div className="top_menu">
+          <div className="title">Mama-Sara Chatbot</div >
+          </div>
       );
     }
   }
