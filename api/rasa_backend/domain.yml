@@ -114,7 +114,7 @@ slots:
   fallback:
     type: text
     initial_value: "0"
-templates:
+responses:
   utter_default:
   - text: Sorry, I didn't get that. Could you please rephrase?
   - text: I didn't understand, could you rephrase that?

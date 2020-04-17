@@ -31,11 +31,16 @@ class ActionDefaultFallback(Action):
             and tracker.events[-4].get("name") == "action_default_ask_affirmation"
         ):
 
-            dispatcher.utter_template("utter_restart_with_button", tracker)
+            dispatcher.utter_message(template="utter_restart_with_button")
 
             return [Restarted()]
 
         # Fallback caused by Core
         else:
-            dispatcher.utter_template("utter_default", tracker)
+            dispatcher.utter_message(template="utter_default")
             return [UserUtteranceReverted()]
+
+
+
+
+

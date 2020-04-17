@@ -10,8 +10,8 @@
     },
     "health_diagnostic_info_form": {
       "slots": [
-        "health",
-        "requested_slot"
+        "requested_slot",
+        "health"
       ]
     },
     "illness_diagnostic_info_form": {
@@ -55,7 +55,7 @@
     "rasa.core.policies.form_policy.FormPolicy",
     "rasa.core.policies.mapping_policy.MappingPolicy"
   ],
-  "trained_at": "20200414-161219",
+  "trained_at": "20200417-122649",
   "rasa": "1.9.5",
   "tensorflow": "2.1.0",
   "sklearn": "0.22.2.post1"

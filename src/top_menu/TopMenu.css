@@ -30,7 +30,8 @@
     background-color: #a3d063;
   }
   .top_menu .title {
-    text-align: center;
+    text-align: left;
+    padding-left: 2%;
     color: #5885ffd3;
     font: small-caps bold 40px/0px Arial, sans-serif;
     /* font-size: 20px; */

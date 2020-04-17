@@ -100,8 +100,13 @@
             "name": "EntitySynonymMapper",
             "file": "component_4_EntitySynonymMapper.json",
             "class": "rasa.nlu.extractors.entity_synonyms.EntitySynonymMapper"
+        },
+        {
+            "name": "RegexFeaturizer",
+            "file": "component_5_RegexFeaturizer.pkl",
+            "class": "rasa.nlu.featurizers.sparse_featurizer.regex_featurizer.RegexFeaturizer"
         }
     ],
-    "trained_at": "20200414-161502",
+    "trained_at": "20200417-122716",
     "rasa_version": "1.9.5"
 }

@@ -12,6 +12,7 @@ pipeline:
   epochs: 50
   loss_type: margin
 - name: EntitySynonymMapper
+- name: RegexFeaturizer
 policies:
 - name: TEDPolicy
   max_history: 10
