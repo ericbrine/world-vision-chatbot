@@ -32,19 +32,12 @@ class ChatApp extends Component {
       .then(
         (results) => {
           console.log(results);
-          const sweeterArray = results.map(result => {
+          const botMessages = results.map(result => {
             return {"message":result["text"], "isbotmessage":true}
           })
-          // results.array.forEach(element => {
-            
-          // });
-          // this.setState({
-          //   messages: [...messages, {"message":results[0]["text"], "isbotmessage":true}]
-          // });
-          console.log(sweeterArray);
+
           this.setState({
-            messages: messages.concat(sweeterArray)
-            // [...messages, sweeterArray]
+            messages: messages.concat(botMessages)
           });
         },
         (error) => {
