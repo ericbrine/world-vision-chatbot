@@ -12,8 +12,8 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "start-api": "cd api && source venv/bin/activate && flask run",
-    "start-rasa-actions": "cd api/rasa_backend && ../venv/bin/rasa run actions",
+    "start-api": "cd api && source venv/bin/activate && python api.py",
+    "start-actions": "cd api/rasa_backend && ../venv/bin/rasa run actions",
     "start-rasa": "cd api/rasa_backend && ../venv/bin/rasa run -m models --endpoints endpoints.yml",
     "build": "react-scripts build",
     "test": "react-scripts test",
@@ -34,5 +34,5 @@
       "last 1 safari version"
     ]
   },
-  "proxy": "http://localhost:5000"
+  "proxy": "http://localhost:8000"
 }

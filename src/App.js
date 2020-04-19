@@ -23,17 +23,28 @@ class ChatApp extends Component {
     console.log(this.state);
     if(current_message && enter){
       messages = [...messages, {"message":current_message}];
-      fetch("/message", {
+      fetch("/webhooks/rest/webhook", {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ message: current_message }),
       })
       .then(res => res.json())
       .then(
-        (result) => {
-          console.log(result);
+        (results) => {
+          console.log(results);
+          const sweeterArray = results.map(result => {
+            return {"message":result["text"], "isbotmessage":true}
+          })
+          // results.array.forEach(element => {
+            
+          // });
+          // this.setState({
+          //   messages: [...messages, {"message":results[0]["text"], "isbotmessage":true}]
+          // });
+          console.log(sweeterArray);
           this.setState({
-            messages: [...messages, {"message":result["response"], "isbotmessage":true}]
+            messages: messages.concat(sweeterArray)
+            // [...messages, sweeterArray]
           });
         },
         (error) => {

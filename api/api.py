@@ -8,11 +8,11 @@ logging.getLogger("tensorflow").setLevel(logging.ERROR)
 import asyncio
 import inspect
 import json
-import logging
 import uuid
 import warnings
 from asyncio import Queue, CancelledError
 from sanic import Sanic, Blueprint, response
+from sanic.log import logger
 from sanic.request import Request
 from typing import Text, List, Dict, Any, Optional, Callable, Iterable, Awaitable
 
@@ -40,11 +40,6 @@ warnings.filterwarnings(action='ignore', category=DeprecationWarning)
 action_endpoint = EndpointConfig('http://localhost:5055/webhook')
 
 class RestInput(InputChannel):
-	"""A custom http input channel.
-
-	This implementation is the basis for a custom implementation of a chat
-	frontend. You can customize this to send messages to Rasa Core and
-	retrieve responses from the agent."""
 
 	@classmethod
 	def name(cls) -> Text:
@@ -117,6 +112,10 @@ class RestInput(InputChannel):
 		async def health(request: Request) -> HTTPResponse:
 			return response.json({"status": "ok"})
 
+		@custom_webhook.route("/hi", methods=["GET"])
+		async def hi(request: Request) -> HTTPResponse:
+			return response.json({"hi": "hi"})
+
 		@custom_webhook.route("/webhook", methods=["POST"])
 		async def receive(request: Request) -> HTTPResponse:
 			sender_id = await self._extract_sender(request)
@@ -162,33 +161,28 @@ class RestInput(InputChannel):
 		return custom_webhook
 
 
-# def run(serve_forever=True):
-
-# 	agent = Agent.load('rasa_backend/models/current', action_endpoint = action_endpoint)
-# 	input_channel = RestInput()
-# 	if serve_forever:
-# 		agent.handle_channels([input_channel], http_port=8000)
-# 	return agent
-
 if __name__ == '__main__':
 
 	agent = Agent.load('rasa_backend/models/current', action_endpoint = action_endpoint)
 	input_channel = RestInput()
-
-	app = Sanic(__name__)
-
+	logger.info('Here is your log')
+	logger.warning('Here is your log')
 	app = run.configure_app([input_channel], None, None, enable_api=False, route='/webhooks/')
 
 	app.agent = agent
 
 	# update_sanic_log_level()
-
+	print(type(app))
+	app.debug=bool(os.environ.get('DEBUG', ''))
 	app.run(
 		host="0.0.0.0",
 		port=8000,
 		debug=True,
 		backlog=int(os.environ.get(ENV_SANIC_BACKLOG, "100")),
 	)
+	app.configure_logging = True
+
+	logger.info('Here is your log')
 	# run()
 
 
