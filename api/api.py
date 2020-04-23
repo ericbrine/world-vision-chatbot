@@ -165,8 +165,8 @@ if __name__ == '__main__':
 
 	agent = Agent.load('rasa_backend/models/current', action_endpoint = action_endpoint)
 	input_channel = RestInput()
-	logger.info('Here is your log')
-	logger.warning('Here is your log')
+	logger.info('Here is your log1')
+	logger.warning('Here is your log2')
 	app = run.configure_app([input_channel], None, None, enable_api=False, route='/webhooks/')
 
 	app.agent = agent
@@ -182,7 +182,7 @@ if __name__ == '__main__':
 	)
 	app.configure_logging = True
 
-	logger.info('Here is your log')
+	logger.info('Here is your log3')
 	# run()
 
 
