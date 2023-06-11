@@ -1,6 +1,6 @@
-# WorldVision Canada Chatbot with Front-end 
+# World Vision Canada Chatbot with Front-end 
 
-- This repo adds a front-end to the chatbot created for WorldVision Canada as part of a U of T capstone project. The front-end chat interface is written in React. The chatbot created with Rasa is hosted on a Sanic server. 
+- This repo adds a front-end to the chatbot created for World Vision Canada as part of a U of T capstone project. The front-end chat interface is written in React. The chatbot created with Rasa is hosted on a Sanic server. 
 
 
 
